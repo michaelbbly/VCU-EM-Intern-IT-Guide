@@ -9,19 +9,15 @@
         :root {
             --vcu-black: #000000;
             --vcu-gold: #FFB300;
-            --vcu-gold-deep: #D99A00;
-            --vcu-gold-soft: #FFF4CC;
-            --ink: #161616;
-            --text: #242424;
-            --muted: #666666;
-            --border: #dedede;
-            --border-soft: #eeeeee;
+            --ink: #171717;
+            --text: #2b2b2b;
+            --muted: #6f6f6f;
+            --border: #e5e2da;
             --surface: #ffffff;
-            --surface-soft: #f7f7f4;
-            --link: #11558c;
+            --surface-soft: #faf9f5;
+            --link: #134f7c;
             --red: #b42318;
-            --radius: 16px;
-            --shadow: 0 18px 44px rgba(0, 0, 0, 0.10);
+            --radius: 12px;
         }
 
         * {
@@ -36,10 +32,7 @@
 
         body {
             margin: 0;
-            min-height: 100vh;
-            background:
-                linear-gradient(135deg, rgba(255, 179, 0, 0.18) 0, rgba(255, 179, 0, 0) 32%),
-                linear-gradient(180deg, #0b0b0b 0, #0b0b0b 132px, #f4f3ef 132px, #f4f3ef 100%);
+            background: #f7f6f2;
             color: var(--text);
             font-family: Arial, Helvetica, sans-serif;
             font-size: 16px;
@@ -54,22 +47,61 @@
             text-underline-offset: 3px;
         }
 
+        a:hover {
+            color: var(--vcu-black);
+        }
+
         a:focus-visible,
         button:focus-visible {
             outline: 3px solid var(--vcu-gold);
             outline-offset: 3px;
-            border-radius: 8px;
+            border-radius: 6px;
         }
 
         .page {
-            width: min(1180px, calc(100% - 40px));
-            margin: 24px auto 34px;
-            padding: 24px;
-            border: 1px solid rgba(255, 179, 0, 0.42);
-            border-top: 8px solid var(--vcu-gold);
-            border-radius: 24px;
+            width: min(1100px, calc(100% - 32px));
+            margin: 22px auto 34px;
+            padding: 22px;
+            border-top: 5px solid var(--vcu-gold);
             background: var(--surface);
-            box-shadow: var(--shadow);
+        }
+
+        .page-title {
+            margin: 0 0 14px;
+            color: var(--ink);
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .contact-strip {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1px;
+            margin: 0 0 24px;
+            border: 1px solid var(--vcu-black);
+            background: var(--vcu-black);
+        }
+
+        .contact-strip a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 42px;
+            padding: 10px 12px;
+            background: var(--vcu-black);
+            color: #ffffff;
+            font-size: 0.9rem;
+            line-height: 1.2;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .contact-strip a:hover {
+            background: #151515;
+            color: var(--vcu-gold);
         }
 
         .mobile-notice {
@@ -93,116 +125,31 @@
             cursor: pointer;
             font: inherit;
             font-size: 1rem;
-            font-weight: 800;
+            font-weight: 700;
             line-height: 1;
-            min-width: 32px;
-            min-height: 32px;
+            min-width: 30px;
+            min-height: 30px;
             padding: 0;
         }
 
-        .page-title {
-            position: relative;
-            margin: 0 0 18px;
-            padding: 3px 0 13px;
-            color: var(--ink);
-            font-size: 0.96rem;
-            font-weight: 900;
-            letter-spacing: 0.065em;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        .page-title::before {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: -18px;
-            width: 84px;
-            height: 4px;
-            border-radius: 999px;
-            background: var(--vcu-black);
-            transform: translateX(-50%);
-        }
-
-        .page-title::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            width: 120px;
-            height: 3px;
-            border-radius: 999px;
-            background: linear-gradient(90deg, transparent 0, var(--vcu-gold) 18%, var(--vcu-gold) 82%, transparent 100%);
-            transform: translateX(-50%);
-        }
-
-        .contact-strip {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 10px;
-            margin-bottom: 26px;
-            padding: 10px;
-            border: 1px solid #1f1f1f;
-            border-radius: 18px;
-            background:
-                linear-gradient(90deg, rgba(255, 179, 0, 0.16), rgba(255, 179, 0, 0)),
-                var(--vcu-black);
-        }
-
-        .contact-strip a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 44px;
-            padding: 9px 12px;
-            border: 1px solid rgba(255, 179, 0, 0.34);
-            border-radius: 13px;
-            background: #151515;
-            color: #ffffff;
-            font-size: 0.91rem;
-            font-weight: 800;
-            line-height: 1.2;
-            text-align: center;
-            text-decoration: none;
-        }
-
-        .contact-strip a:hover {
-            border-color: var(--vcu-gold);
-            background: #1d1d1d;
-            box-shadow: 0 0 0 3px rgba(255, 179, 0, 0.18);
-        }
-
         .section-block {
-            margin-top: 26px;
+            margin-top: 24px;
         }
 
         h2 {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 0 0 10px;
+            margin: 0 0 9px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--vcu-gold);
             color: var(--ink);
-            font-size: clamp(1.14rem, 2.1vw, 1.42rem);
+            font-size: clamp(1.05rem, 2vw, 1.28rem);
             line-height: 1.15;
-            letter-spacing: -0.02em;
-        }
-
-        h2::before {
-            content: "";
-            width: 7px;
-            height: 1.12em;
-            border-radius: 999px;
-            background: var(--vcu-gold);
-            box-shadow: 8px 0 0 var(--vcu-black);
-            flex: 0 0 auto;
+            letter-spacing: -0.01em;
         }
 
         .table-wrap {
             border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
             background: var(--surface);
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
         }
 
         table {
@@ -212,14 +159,13 @@
         }
 
         th {
-            padding: 10px 12px;
+            padding: 9px 11px;
             background: var(--vcu-black);
             color: #ffffff;
-            border-right: 1px solid #333333;
-            border-bottom: 3px solid var(--vcu-gold);
-            font-size: 0.72rem;
-            font-weight: 900;
-            letter-spacing: 0.07em;
+            border-right: 1px solid #2a2a2a;
+            font-size: 0.71rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
             text-align: left;
             text-transform: uppercase;
         }
@@ -230,9 +176,9 @@
 
         td {
             vertical-align: top;
-            padding: 14px 13px;
-            border-top: 1px solid var(--border-soft);
-            border-right: 1px solid var(--border-soft);
+            padding: 13px 12px;
+            border-top: 1px solid var(--border);
+            border-right: 1px solid var(--border);
             overflow-wrap: anywhere;
         }
 
@@ -241,11 +187,7 @@
         }
 
         tr:nth-child(even) td {
-            background: #fbfaf6;
-        }
-
-        tbody tr:hover td {
-            background: #fff9e8;
+            background: var(--surface-soft);
         }
 
         th:nth-child(1),
@@ -255,22 +197,23 @@
 
         th:nth-child(2),
         td:nth-child(2) {
-            width: 49%;
+            width: 50%;
         }
 
         th:nth-child(3),
         td:nth-child(3) {
-            width: 27%;
+            width: 26%;
         }
 
         .resource-cell {
-            font-weight: 900;
+            color: var(--ink);
+            font-weight: 800;
             line-height: 1.25;
         }
 
         .resource-cell a {
             color: var(--ink);
-            text-decoration-color: rgba(255, 179, 0, 0.9);
+            text-decoration-color: var(--vcu-gold);
             text-decoration-thickness: 2px;
         }
 
@@ -279,13 +222,13 @@
             display: block;
             margin-top: 3px;
             color: var(--muted);
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             font-style: normal;
             font-weight: 400;
         }
 
         p {
-            margin: 0 0 0.78em;
+            margin: 0 0 0.72em;
         }
 
         p:last-child {
@@ -294,11 +237,11 @@
 
         ul {
             margin: 0;
-            padding-left: 1.1rem;
+            padding-left: 1.05rem;
         }
 
         li {
-            margin: 0.2rem 0;
+            margin: 0.16rem 0;
         }
 
         .important,
@@ -314,12 +257,8 @@
         .side-comment {
             display: inline-block;
             margin-left: 6px;
-            padding: 1px 7px 2px;
-            border: 1px solid #e2e2e2;
-            border-radius: 999px;
-            background: #f7f7f4;
-            color: #707070;
-            font-size: 0.7rem;
+            color: var(--muted);
+            font-size: 0.74rem;
             font-style: italic;
             font-weight: 400;
             white-space: nowrap;
@@ -339,96 +278,68 @@
 
         @media (max-width: 760px) {
             body {
-                background: #f7f6f1;
+                background: #ffffff;
                 font-size: 15px;
-                line-height: 1.48;
+                line-height: 1.5;
             }
 
             .page {
                 width: 100%;
                 margin: 0;
-                padding: max(10px, env(safe-area-inset-top)) 10px max(18px, env(safe-area-inset-bottom));
-                border: 0;
-                border-top: 5px solid var(--vcu-gold);
-                border-radius: 0;
-                box-shadow: none;
-                background: #f7f6f1;
+                padding: max(10px, env(safe-area-inset-top)) 10px max(20px, env(safe-area-inset-bottom));
+                border-top: 4px solid var(--vcu-gold);
             }
 
             .mobile-notice {
                 display: flex;
                 align-items: center;
                 gap: 6px;
-                margin-bottom: 8px;
+                margin: 0 0 10px;
                 padding: 6px 8px 6px 10px;
-                border: 1px solid #e2d6a4;
-                border-left: 4px solid var(--vcu-gold);
-                border-radius: 10px;
-                background: var(--vcu-gold-soft);
+                border: 1px solid var(--border);
+                border-left: 3px solid var(--vcu-gold);
+                border-radius: 9px;
+                background: #fff9e8;
                 color: var(--ink);
-                font-size: 0.78rem;
+                font-size: 0.77rem;
                 font-weight: 700;
             }
 
             .page-title {
-                margin: 0 0 11px;
-                padding: 2px 0 10px;
-                font-size: 0.8rem;
-                line-height: 1.2;
-            }
-
-            .page-title::before {
-                display: none;
-            }
-
-            .page-title::after {
-                width: 74px;
-                height: 2px;
-                background: var(--vcu-black);
+                margin-bottom: 10px;
+                font-size: 0.78rem;
             }
 
             .contact-strip {
-                display: grid;
-                grid-template-columns: 1fr;
-                gap: 6px;
-                margin-bottom: 14px;
-                padding: 8px;
-                border: 1px solid #1a1a1a;
-                border-radius: 14px;
-                background: var(--vcu-black);
+                gap: 0;
+                margin-bottom: 16px;
             }
 
             .contact-strip a {
                 justify-content: flex-start;
-                min-height: 42px;
+                min-height: 40px;
                 padding: 9px 11px;
-                border-radius: 10px;
-                background: #141414;
-                color: #ffffff;
-                font-size: 0.9rem;
+                border-top: 1px solid #2a2a2a;
+                font-size: 0.88rem;
                 text-align: left;
             }
 
+            .contact-strip a:first-child {
+                border-top: 0;
+            }
+
             .section-block {
-                margin-top: 17px;
+                margin-top: 18px;
             }
 
             h2 {
                 margin-bottom: 8px;
-                padding-left: 1px;
-                font-size: 1.13rem;
-            }
-
-            h2::before {
-                width: 5px;
-                box-shadow: 7px 0 0 var(--vcu-black);
+                padding-bottom: 5px;
+                font-size: 1.08rem;
             }
 
             .table-wrap {
                 border: 0;
-                border-radius: 0;
-                background: transparent;
-                box-shadow: none;
                 overflow: visible;
             }
 
@@ -452,29 +363,27 @@
 
             tr {
                 margin: 0 0 10px;
-                border: 1px solid #ded8c8;
-                border-top: 4px solid var(--vcu-gold);
-                border-radius: 15px;
+                border: 1px solid var(--border);
+                border-top: 3px solid var(--vcu-gold);
+                border-radius: var(--radius);
                 background: var(--surface);
-                box-shadow: 0 5px 16px rgba(0, 0, 0, 0.06);
                 overflow: hidden;
             }
 
-            tr:nth-child(even) td,
-            tbody tr:hover td {
+            tr:nth-child(even) td {
                 background: var(--surface);
             }
 
             td {
                 border: 0;
-                border-top: 1px solid var(--border-soft);
-                padding: 10px 12px 12px;
+                border-top: 1px solid var(--border);
+                padding: 10px 11px 11px;
             }
 
             td:first-child {
                 border-top: 0;
-                background: #111111 !important;
                 padding: 0;
+                background: var(--vcu-black) !important;
             }
 
             td:empty,
@@ -488,8 +397,8 @@
                 display: block;
                 margin-bottom: 4px;
                 color: var(--muted);
-                font-size: 0.68rem;
-                font-weight: 900;
+                font-size: 0.67rem;
+                font-weight: 800;
                 letter-spacing: 0.05em;
                 text-transform: uppercase;
             }
@@ -500,43 +409,23 @@
 
             .resource-cell {
                 color: #ffffff;
-                font-size: 1rem;
-                line-height: 1.2;
             }
 
             .resource-cell a,
             .resource-cell:not(:has(a)) {
                 display: block;
                 width: 100%;
-                min-height: 44px;
-                padding: 13px 12px;
+                min-height: 42px;
+                padding: 12px 11px;
                 color: #ffffff;
                 text-decoration: none;
-            }
-
-            .resource-cell a {
-                width: 100%;
             }
 
             .resource-cell em {
                 display: block;
                 margin-top: 3px;
                 color: rgba(255, 255, 255, 0.76);
-                font-size: 0.76rem;
-            }
-
-            .description-cell p {
-                margin-bottom: 0.7em;
-            }
-
-            .side-comment {
-                display: inline-block;
-                margin: 5px 0 0;
-                white-space: normal;
-            }
-
-            .sublinks-cell p {
-                margin-bottom: 0.55em;
+                font-size: 0.75rem;
             }
 
             .sublinks-cell ul {
@@ -554,15 +443,21 @@
             .sublinks-cell a {
                 display: inline-flex;
                 align-items: center;
-                min-height: 36px;
-                padding: 8px 10px;
-                border: 1px solid #e4d9ad;
+                min-height: 35px;
+                padding: 7px 9px;
+                border: 1px solid var(--border);
                 border-radius: 999px;
-                background: #fffdf4;
+                background: #ffffff;
                 color: var(--link);
                 font-size: 0.84rem;
                 line-height: 1.1;
                 text-decoration: none;
+            }
+
+            .side-comment {
+                display: inline;
+                margin-left: 4px;
+                white-space: normal;
             }
         }
 
@@ -598,15 +493,10 @@
                 margin: 0;
                 padding: 0;
                 border: 0;
-                box-shadow: none;
             }
 
             .mobile-notice {
                 display: none !important;
-            }
-
-            .table-wrap {
-                box-shadow: none;
             }
 
             a {
@@ -617,215 +507,207 @@
     </style>
 </head>
 <body>
-    <main class="page">
-        <div class="mobile-notice" id="mobileNotice" role="status" aria-live="polite">
-            <span class="mobile-notice-text">Recommend using on desktop</span>
-            <button class="mobile-notice-dismiss" type="button" aria-label="Dismiss" id="mobileNoticeDismiss">×</button>
-        </div>
-
-        <div class="page-title">VCU EM Intern IT Guide 2026</div>
-
-        <div class="contact-strip">
-            <a href="tel:17578178344">Michael Bly 757-817-8344</a>
-            <a href="tel:15028362470">Rishi Talati 502-836-2470</a>
-            <a href="tel:18048286447">VCU IT Help Desk 804-828-6447</a>
-        </div>
-
-        <section class="section-block" id="scheduling">
-            <h2>Scheduling/Calendars</h2>
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Resource</th>
-                            <th>Description</th>
-                            <th>Sublinks</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell"><a href="https://www.shiftadmin.com/login.php">ShiftAdmin</a></div></td>
-                            <td data-label="Description">
-                                <div class="description-cell">
-                                    <p class="important-after-first">ED shift schedule management system. This is where your shift schedule for EM blocks gets posted. It’s also where you submit your schedule preferences and vacation requests.</p>
-                                    <p class="important-after-first"><strong>**You can sync your shift schedule to your Google/Apple calendar by using the url generated on <a href="https://www.shiftadmin.com/u_popup_subscribe.php">this page</a></strong><span class="side-comment">(login before clicking)</span></p>
-                                </div>
-                            </td>
-                            <td data-label="Sublinks">
-                                <div class="sublinks-cell">
-                                    <ul>
-                                        <li><a href="https://www.shiftadmin.com/u_form.php?id=1&iid=1">Submit Vacation Request</a></li>
-                                        <li><a href="https://www.shiftadmin.com/u_group_schedule_period_requests.php?id=4">Submit Schedule Requests</a></li>
-                                        <li><a href="https://www.shiftadmin.com/u_schedule.php?id=0">Personal schedule</a></li>
-                                        <li><a href="https://www.shiftadmin.com/u_schedule.php?id=4">Group schedule</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell"><a href="https://calendar.google.com/calendar/u/0?cid=MmIzOTk4OTc1ZThlNTI5MDA1NTY5MzM3OTJlNmU5NTYxZmEzZmZhYjAwYWRkNDJlMTMwZjA4MThjYTU4ZDhjMUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t">VCU EM Block Calendar</a></div></td>
-                            <td data-label="Description"><div class="description-cell"><p class="important">Google calendar with block dates, schedule request deadlines and other important dates for the upcoming academic year. You’ll get a notification 1 week/1 day prior to each schedule request deadline.</p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"></div></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section class="section-block" id="gme-hr">
-            <h2>GME/HR</h2>
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Resource</th>
-                            <th>Description</th>
-                            <th>Sublinks</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell"><a href="https://www.new-innov.com/Login/Login.aspx?utm_source=home&utm_medium=web&utm_campaign=login&utm_term=login_button">New Innovations</a></div></td>
-                            <td data-label="Description"><div class="description-cell"><p>GME’s platform for logging duty hours, procedures, patient follow up logs, scholarly activity, evaluations, assigned onboarding tasks, etc.</p></div></td>
-                            <td data-label="Sublinks">
-                                <div class="sublinks-cell">
-                                    <ul>
-                                        <li><a href="https://www.new-innov.com/Portfolio/Host.aspx?Control=ActivityManager">Patient follow up logs</a></li>
-                                        <li><a href="https://www.new-innov.com/Logger/Logger_Host.aspx?Control=PLogAdd">Log procedures</a></li>
-                                        <li><a href="https://www.new-innov.com/DutyHours/DutyHours_Host.aspx?Control=AddHoursGraphical">Log work hours</a></li>
-                                        <li><a href="https://www.new-innov.com/EvaluationForms/EvaluationFormsHost.aspx?Control=CompleteEvals">Request/Review Evaluations</a></li>
-                                        <li><a href="https://www.new-innov.com/Checklists/Onboarding/OnboardRecipient_Host.aspx?Control=StatusIndividual">Onboarding/admin tasks</a></li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell"><a href="https://launchpad.vcuhealth.org/app/UserHome">Workday</a></div></td>
-                            <td data-label="Description"><div class="description-cell"><p>VCU’s HR platform (<em>Employee records, expense reimbursement, payroll, benefits, administrative tasks, etc.</em>). Log in with your VCU health email/credentials.</p><p>You can also get to your outlook/other apps through this launchpad.</p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"><ul><li><a href="https://outlook.office.com/mail/">Outlook login</a></li></ul></div></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section class="section-block" id="residency-resources">
-            <h2>Residency resources</h2>
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Resource</th>
-                            <th>Description</th>
-                            <th>Sublinks</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell"><a href="https://emresidencyeducation.com/">VCU EM Residency page</a></div></td>
-                            <td data-label="Description"><div class="description-cell"><p>Residency education page with conference materials and other random resources. Password is “Delta”</p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"><ul><li><a href="https://docs.google.com/spreadsheets/d/15tuifh9DRq4iM5ZDE67NsZjTXlR20w2RFfeGGoBU1EE/edit?gid=1219098848#gid=1219098848">Conference schedule</a></li><li><a href="https://docs.google.com/spreadsheets/d/16gzzHjtjh4vnkgIppz5fBF10jghebm1GeQ2bKztEWUU/edit?usp=drive_link">Teach Rounds signup</a></li><li><a href="https://emresidencyeducation.com/longitudinal-tracks/">Longitudinal tracks</a></li></ul></div></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell"><a href="https://docs.google.com/forms/d/e/1FAIpQLSchiRfJeljej4wfsEA3sEsp7HbQwlrfq33Luw30WYpBh9tzPA/viewform">Asynchronous conference credit</a></div></td>
-                            <td data-label="Description"><div class="description-cell"><p>Google form for submitting asynchronous conference credit. Gets sent to Kindle Zimmerman, academic chief and APDs for approval.</p><p>You can check your conference attendance% and calculate how much asynchronous credit you need to do in your resident dashboard.</p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"><p>Approved resources for asynchronous credit:</p><ul><li><a href="http://www.aliemu.com/">ALiEM U</a></li><li><a href="http://www.hippoem.com/">Hippo EM</a></li><li><a href="http://www.imageinterpretation.co.uk/">Xray Interpretation</a></li><li><a href="https://www.thesullivangroup.com/RSQSolutions/services-solutions/high-risk-rsq-solutions/diagnostic-errors-emergency-medicine/">Diagnostic Errors in EM</a></li></ul></div></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell">Resident Dashboard</div></td>
-                            <td data-label="Description"><div class="description-cell"><p>Kindle Zimmerman will at some point share a “resident dashboard” with you, which is basically a google excel sheet she keeps updated to keep track of various things to make sure you graduate on time (procedures, ITE score, etc).</p><p>She’ll share it to your personal email you gave the residency program. If you can’t find the email, go to google drive -> shared with me and it might show up there, or just contact Kindle</p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"></div></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section class="section-block" id="clinical">
-            <h2>Clinical</h2>
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Resource</th>
-                            <th>Description</th>
-                            <th>Sublinks</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell"><a href="https://epicproxy.et1200.epichosted.com/MobileConfigs/MobileConfigs.html">Haiku Configuration</a></div></td>
-                            <td data-label="Description"><div class="description-cell"><p class="important">Link for setting up Haiku (mobile app for Epic).</p><p class="important">Download the Haiku app, then when it prompts you to “configure the environment”, open <a href="https://epicproxy.et1200.epichosted.com/MobileConfigs/MobileConfigs.html">this link</a></p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"><ul><li><a href="https://apps.apple.com/us/app/epic-haiku-limerick/id348308661">Haiku App Store download</a></li></ul></div></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell"><a href="https://connect.vcuhealth.org/logon/LogonPoint/tmindex.html">Epic Remote login</a></div></td>
-                            <td data-label="Description"><div class="description-cell"><p class="important">Link to access Epic from home. Use PRD Hyperspace app if you just need to use Epic or the Windows 10 app if you want to simulate the entire windows desktop (including files saved to your windows H drive).</p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"></div></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell"><a href="https://smartweb.vcuhealth.org/smartweb/">Telepage</a> <em>(need to be on VCU’s network)</em></div></td>
-                            <td data-label="Description"><div class="description-cell"><p>Paging system at VCU. Use it to search for people/consultants and send them a page.</p><p>You can pull up the webpage by clicking on the telepage icon/hyperlink on your computer’s desktop.</p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"></div></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell"><a href="https://launchpad.vcuhealth.org/app/vcuhealth_qpathcloud_1/exk9m3mke71tBHaJZ4h7/sso/saml">QPath</a> <em>(need to be on VCU’s network)</em></div></td>
-                            <td data-label="Description"><div class="description-cell"><p>Platform for managing ultrasound studies. After you finish scanning, images are uploaded to QPath. Then you log into QPath and interpret them. Then they get reviewed/approved by the ultrasound team.</p><p>You can access a hyperlink to QPath under “links” tool in Epic toolbar. Sign in with VCU health email.</p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"></div></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell"><a href="https://michaelbbly.github.io/vcu_contacts/VCU_ED_Contacts_iPhone.vcf">VCU ED Department contact list</a></div></td>
-                            <td data-label="Description"><div class="description-cell"><p>Download this file and open it (in Safari) to import contacts for ED/hospital phone numbers and pagers into the apple contacts app.</p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"></div></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section class="section-block" id="other">
-            <h2>Other</h2>
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Resource</th>
-                            <th>Description</th>
-                            <th>Sublinks</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell"><a href="https://app.roshreview.com/">Academic resources</a></div></td>
-                            <td data-label="Description"><div class="description-cell"><p>Study/reference resources</p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"><ul><li><a href="https://app.roshreview.com/">Rosh Review</a></li><li><a href="https://wikem.org/">WikiEM</a></li><li><a href="https://drive.google.com/drive/folders/1VBIsiKYmLq2gopX_Dszr-kcLPjU66WQI?usp=sharing">Google Drive</a></li></ul></div></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell">Eolas App</div></td>
-                            <td data-label="Description"><div class="description-cell"><p>Hosts policies/guidelines from departments across the hospital. Download from app store.</p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"></div></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell"><a href="https://vr-fhs.vdh.virginia.gov/vvestsapps/f?p=vvests:login">EDRS</a> &amp; PDMP</div></td>
-                            <td data-label="Description"><div class="description-cell"><p>Electronic Death Records System; this is the form you fill out to tell the state your patient died :(</p><p>PDMP is the state’s prescription drug monitoring program. You’ll be prompted to review the PDMP before you prescribe narcotics, then you have to authenticate the prescription by approving a notification from an app called “Imprivata” on your work phone.</p><p>GME can help you get your login credentials/set up for both of these.</p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"></div></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell"><a href="https://citrixaccess.va.gov/vpn/index_citrix_splash.html">CPRS</a></div></td>
-                            <td data-label="Description"><div class="description-cell"><p>Charting system used by the Veteran Affairs (VA). This is the link for remote login. You need a PIV card reader and your issued PIV card (government badge) to access. You probably won’t need to use this intern year (even during your anesthesia rotation at the VA).</p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"></div></td>
-                        </tr>
-                        <tr>
-                            <td data-label="Resource"><div class="resource-cell">PACS</div></td>
-                            <td data-label="Description"><div class="description-cell"><p>View CT scans/MRIs obtained at outside hospitals. The outside hospital has to upload it to VCU’s image resource center.</p><p>Really only useful for patients that get directly transferred to us from outside hospitals. For other patients, theoretically you can try finding the contact info to the outside hospital in our radiology department's database and then call/request them to upload the images to our image center. <span class="small-note">(Or just repeat the MRI….)</span></p></div></td>
-                            <td data-label="Sublinks"><div class="sublinks-cell"><ul><li><a href="https://radwiki.mcvh-vcu.edu/images/f/f2/Radwiki_cloud_connection_worklist.pdf">Radiology department’s database for contacting outside hospitals</a> <em>(need to be on VCU’s network)</em></li></ul></div></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-    </main>
+<main class="page">
+<div aria-live="polite" class="mobile-notice" id="mobileNotice" role="status">
+<span class="mobile-notice-text">Recommend using on desktop</span>
+<button aria-label="Dismiss" class="mobile-notice-dismiss" id="mobileNoticeDismiss" type="button">×</button>
+</div>
+<div class="page-title">VCU EM Intern IT Guide 2026</div>
+<div class="contact-strip">
+<a href="tel:17578178344">Michael Bly 757-817-8344</a>
+<a href="tel:15028362470">Rishi Talati 502-836-2470</a>
+<a href="tel:18048286447">VCU IT Help Desk 804-828-6447</a>
+</div>
+<section class="section-block" id="scheduling">
+<h2>Scheduling/Calendars</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Description</th>
+<th>Sublinks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Resource"><div class="resource-cell"><a href="https://www.shiftadmin.com/login.php">ShiftAdmin</a></div></td>
+<td data-label="Description">
+<div class="description-cell">
+<p class="important-after-first">ED shift schedule management system. This is where your shift schedule for EM blocks gets posted. It’s also where you submit your schedule preferences and vacation requests.</p>
+<p class="important-after-first"><strong>**You can sync your shift schedule to your Google/Apple calendar by using the url generated on <a href="https://www.shiftadmin.com/u_popup_subscribe.php">this page</a></strong><span class="side-comment">(login before clicking)</span></p>
+</div>
+</td>
+<td data-label="Sublinks">
+<div class="sublinks-cell">
+<ul>
+<li><a href="https://www.shiftadmin.com/u_form.php?id=1&amp;iid=1">Submit Vacation Request</a></li>
+<li><a href="https://www.shiftadmin.com/u_group_schedule_period_requests.php?id=4">Submit Schedule Requests</a></li>
+<li><a href="https://www.shiftadmin.com/u_schedule.php?id=0">Personal schedule</a></li>
+<li><a href="https://www.shiftadmin.com/u_schedule.php?id=4">Group schedule</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td data-label="Resource"><div class="resource-cell"><a href="https://calendar.google.com/calendar/u/0?cid=MmIzOTk4OTc1ZThlNTI5MDA1NTY5MzM3OTJlNmU5NTYxZmEzZmZhYjAwYWRkNDJlMTMwZjA4MThjYTU4ZDhjMUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t">VCU EM Block Calendar</a></div></td>
+<td data-label="Description"><div class="description-cell"><p class="important">Google calendar with block dates, schedule request deadlines and other important dates for the upcoming academic year. You’ll get a notification 1 week/1 day prior to each schedule request deadline.</p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section-block" id="gme-hr">
+<h2>GME/HR</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Description</th>
+<th>Sublinks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Resource"><div class="resource-cell"><a href="https://www.new-innov.com/Login/Login.aspx?utm_source=home&amp;utm_medium=web&amp;utm_campaign=login&amp;utm_term=login_button">New Innovations</a></div></td>
+<td data-label="Description"><div class="description-cell"><p>GME’s platform for logging duty hours, procedures, patient follow up logs, scholarly activity, evaluations, assigned onboarding tasks, etc.</p></div></td>
+<td data-label="Sublinks">
+<div class="sublinks-cell">
+<ul>
+<li><a href="https://www.new-innov.com/Portfolio/Host.aspx?Control=ActivityManager">Patient follow up logs</a></li>
+<li><a href="https://www.new-innov.com/Logger/Logger_Host.aspx?Control=PLogAdd">Log procedures</a></li>
+<li><a href="https://www.new-innov.com/DutyHours/DutyHours_Host.aspx?Control=AddHoursGraphical">Log work hours</a></li>
+<li><a href="https://www.new-innov.com/EvaluationForms/EvaluationFormsHost.aspx?Control=CompleteEvals">Request/Review Evaluations</a></li>
+<li><a href="https://www.new-innov.com/Checklists/Onboarding/OnboardRecipient_Host.aspx?Control=StatusIndividual">Onboarding/admin tasks</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td data-label="Resource"><div class="resource-cell"><a href="https://launchpad.vcuhealth.org/app/UserHome">Workday</a></div></td>
+<td data-label="Description"><div class="description-cell"><p>VCU’s HR platform (<em>Employee records, expense reimbursement, payroll, benefits, administrative tasks, etc.</em>). Log in with your VCU health email/credentials.</p><p>You can also get to your outlook/other apps through this launchpad.</p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"><ul><li><a href="https://outlook.office.com/mail/">Outlook login</a></li></ul></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section-block" id="residency-resources">
+<h2>Residency resources</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Description</th>
+<th>Sublinks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Resource"><div class="resource-cell"><a href="https://emresidencyeducation.com/">VCU EM Residency page</a></div></td>
+<td data-label="Description"><div class="description-cell"><p>Residency education page with conference materials and other random resources. Password is “Delta”</p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"><ul><li><a href="https://docs.google.com/spreadsheets/d/15tuifh9DRq4iM5ZDE67NsZjTXlR20w2RFfeGGoBU1EE/edit?gid=1219098848#gid=1219098848">Conference schedule</a></li><li><a href="https://docs.google.com/spreadsheets/d/16gzzHjtjh4vnkgIppz5fBF10jghebm1GeQ2bKztEWUU/edit?usp=drive_link">Teach Rounds signup</a></li><li><a href="https://emresidencyeducation.com/longitudinal-tracks/">Longitudinal tracks</a></li></ul></div></td>
+</tr>
+<tr>
+<td data-label="Resource"><div class="resource-cell"><a href="https://docs.google.com/forms/d/e/1FAIpQLSchiRfJeljej4wfsEA3sEsp7HbQwlrfq33Luw30WYpBh9tzPA/viewform">Asynchronous conference credit</a></div></td>
+<td data-label="Description"><div class="description-cell"><p>Google form for submitting asynchronous conference credit. Gets sent to Kindle Zimmerman, academic chief and APDs for approval.</p><p>You can check your conference attendance% and calculate how much asynchronous credit you need to do in your resident dashboard.</p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"><p>Approved resources for asynchronous credit:</p><ul><li><a href="http://www.aliemu.com/">ALiEM U</a></li><li><a href="http://www.hippoem.com/">Hippo EM</a></li><li><a href="http://www.imageinterpretation.co.uk/">Xray Interpretation</a></li><li><a href="https://www.thesullivangroup.com/RSQSolutions/services-solutions/high-risk-rsq-solutions/diagnostic-errors-emergency-medicine/">Diagnostic Errors in EM</a></li></ul></div></td>
+</tr>
+<tr>
+<td data-label="Resource"><div class="resource-cell">Resident Dashboard</div></td>
+<td data-label="Description"><div class="description-cell"><p>Kindle Zimmerman will at some point share a “resident dashboard” with you, which is basically a google excel sheet she keeps updated to keep track of various things to make sure you graduate on time (procedures, ITE score, etc).</p><p>She’ll share it to your personal email you gave the residency program. If you can’t find the email, go to google drive -&gt; shared with me and it might show up there, or just contact Kindle</p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section-block" id="clinical">
+<h2>Clinical</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Description</th>
+<th>Sublinks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Resource"><div class="resource-cell"><a href="https://epicproxy.et1200.epichosted.com/MobileConfigs/MobileConfigs.html">Haiku Configuration</a></div></td>
+<td data-label="Description"><div class="description-cell"><p class="important">Link for setting up Haiku (mobile app for Epic).</p><p class="important">Download the Haiku app, then when it prompts you to “configure the environment”, open <a href="https://epicproxy.et1200.epichosted.com/MobileConfigs/MobileConfigs.html">this link</a></p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"><ul><li><a href="https://apps.apple.com/us/app/epic-haiku-limerick/id348308661">Haiku App Store download</a></li></ul></div></td>
+</tr>
+<tr>
+<td data-label="Resource"><div class="resource-cell"><a href="https://connect.vcuhealth.org/logon/LogonPoint/tmindex.html">Epic Remote login</a></div></td>
+<td data-label="Description"><div class="description-cell"><p class="important">Link to access Epic from home. Use PRD Hyperspace app if you just need to use Epic or the Windows 10 app if you want to simulate the entire windows desktop (including files saved to your windows H drive).</p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"></div></td>
+</tr>
+<tr>
+<td data-label="Resource"><div class="resource-cell"><a href="https://smartweb.vcuhealth.org/smartweb/">Telepage</a> <em>(need to be on VCU’s network)</em></div></td>
+<td data-label="Description"><div class="description-cell"><p>Paging system at VCU. Use it to search for people/consultants and send them a page.</p><p>You can pull up the webpage by clicking on the telepage icon/hyperlink on your computer’s desktop.</p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"></div></td>
+</tr>
+<tr>
+<td data-label="Resource"><div class="resource-cell"><a href="https://launchpad.vcuhealth.org/app/vcuhealth_qpathcloud_1/exk9m3mke71tBHaJZ4h7/sso/saml">QPath</a> <em>(need to be on VCU’s network)</em></div></td>
+<td data-label="Description"><div class="description-cell"><p>Platform for managing ultrasound studies. After you finish scanning, images are uploaded to QPath. Then you log into QPath and interpret them. Then they get reviewed/approved by the ultrasound team.</p><p>You can access a hyperlink to QPath under “links” tool in Epic toolbar. Sign in with VCU health email.</p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"></div></td>
+</tr>
+<tr>
+<td data-label="Resource"><div class="resource-cell"><a href="https://michaelbbly.github.io/vcu_contacts/VCU_ED_Contacts_iPhone.vcf">VCU ED Department contact list</a></div></td>
+<td data-label="Description"><div class="description-cell"><p>Download this file and open it (in Safari) to import contacts for ED/hospital phone numbers and pagers into the apple contacts app.</p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="section-block" id="other">
+<h2>Other</h2>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Description</th>
+<th>Sublinks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td data-label="Resource"><div class="resource-cell"><a href="https://app.roshreview.com/">Academic resources</a></div></td>
+<td data-label="Description"><div class="description-cell"><p>Study/reference resources</p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"><ul><li><a href="https://app.roshreview.com/">Rosh Review</a></li><li><a href="https://wikem.org/">WikiEM</a></li><li><a href="https://drive.google.com/drive/folders/1VBIsiKYmLq2gopX_Dszr-kcLPjU66WQI?usp=sharing">Google Drive</a></li></ul></div></td>
+</tr>
+<tr>
+<td data-label="Resource"><div class="resource-cell">Eolas App</div></td>
+<td data-label="Description"><div class="description-cell"><p>Hosts policies/guidelines from departments across the hospital. Download from app store.</p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"></div></td>
+</tr>
+<tr>
+<td data-label="Resource"><div class="resource-cell"><a href="https://vr-fhs.vdh.virginia.gov/vvestsapps/f?p=vvests:login">EDRS</a> &amp; PDMP</div></td>
+<td data-label="Description"><div class="description-cell"><p>Electronic Death Records System; this is the form you fill out to tell the state your patient died :(</p><p>PDMP is the state’s prescription drug monitoring program. You’ll be prompted to review the PDMP before you prescribe narcotics, then you have to authenticate the prescription by approving a notification from an app called “Imprivata” on your work phone.</p><p>GME can help you get your login credentials/set up for both of these.</p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"></div></td>
+</tr>
+<tr>
+<td data-label="Resource"><div class="resource-cell"><a href="https://citrixaccess.va.gov/vpn/index_citrix_splash.html">CPRS</a></div></td>
+<td data-label="Description"><div class="description-cell"><p>Charting system used by the Veteran Affairs (VA). This is the link for remote login. You need a PIV card reader and your issued PIV card (government badge) to access. You probably won’t need to use this intern year (even during your anesthesia rotation at the VA).</p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"></div></td>
+</tr>
+<tr>
+<td data-label="Resource"><div class="resource-cell">PACS</div></td>
+<td data-label="Description"><div class="description-cell"><p>View CT scans/MRIs obtained at outside hospitals. The outside hospital has to upload it to VCU’s image resource center.</p><p>Really only useful for patients that get directly transferred to us from outside hospitals. For other patients, theoretically you can try finding the contact info to the outside hospital in our radiology department's database and then call/request them to upload the images to our image center. <span class="small-note">(Or just repeat the MRI….)</span></p></div></td>
+<td data-label="Sublinks"><div class="sublinks-cell"><ul><li><a href="https://radwiki.mcvh-vcu.edu/images/f/f2/Radwiki_cloud_connection_worklist.pdf">Radiology department’s database for contacting outside hospitals</a> <em>(need to be on VCU’s network)</em></li></ul></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
 
     <script>
         (function () {
